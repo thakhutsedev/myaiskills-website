@@ -1,101 +1,284 @@
-import Image from "next/image";
+import Link from "next/link"
+import { Button } from "@/components/ui/Button"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/Card"
+import { Badge } from "@/components/ui/Badge"
+import { Input } from "@/components/ui/Input"
+import { Briefcase, Code, GraduationCap, Building, ArrowRight } from "lucide-react"
 
-export default function Home() {
+export const dynamic = 'force-static'
+export const revalidate = 86400
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="py-20 lg:py-32 px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center space-y-8 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-gray-900 text-balance">
+              Master AI Skills That Actually Work
+            </h1>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto text-balance">
+              Practical training to transform how you work, create, and compete in the AI era. No theory overload. Real skills. Real outcomes.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button asChild size="lg">
+                <Link href="/quiz">Take the Free AI Readiness Quiz</Link>
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <Link href="/programmes">Explore Programmes</Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Who It's For Section */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-center text-gray-900 mb-12">
+            Built for People Who Want to Do, Not Just Learn
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Briefcase,
+                title: "Working Professionals",
+                description: "Stay relevant as AI transforms your industry"
+              },
+              {
+                icon: Code,
+                title: "Developers & Tech Leaders",
+                description: "Augment your skills, don't get replaced"
+              },
+              {
+                icon: GraduationCap,
+                title: "Academics & Educators",
+                description: "Bring practical AI into your teaching"
+              },
+              {
+                icon: Building,
+                title: "Institutions & Teams",
+                description: "Upskill your people with structured programmes"
+              }
+            ].map((item, index) => (
+              <Card key={index} className="text-center">
+                <CardContent className="pt-6">
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 rounded-full bg-primary/10">
+                      <item.icon className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Problem Section */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <Card variant="glass-dark" className="text-center">
+            <CardContent className="py-12 px-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
+                Most People Are AI-Aware, Not AI-Capable
+              </h2>
+              <p className="text-lg text-white/90 leading-relaxed">
+                You've heard of ChatGPT. You've tried it once or twice. But you're not using AI to actually get work done, create value, or solve real problems. That gap between awareness and capability is costing you time, opportunity, and confidence.
+              </p>
+              <p className="text-xl font-semibold mt-6">
+                We close that gap.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* How We Do It Section */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-center text-gray-900 mb-12">
+            Four Ways to Build Real AI Skills
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge variant="popular">Most Popular</Badge>
+                </div>
+                <CardTitle>AI Foundations Cohort</CardTitle>
+                <CardDescription>4 weeks from AI-curious to AI-capable</CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <Button asChild variant="outline" className="w-full">
+                  <Link href="/aifoundations">
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Mentoring & Guidance</CardTitle>
+                <CardDescription>1:1 support for your AI journey</CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <Button asChild variant="outline" className="w-full">
+                  <Link href="/contact">
+                    Book a Call <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge variant="secondary">Coming Soon</Badge>
+                </div>
+                <CardTitle>Applied Projects</CardTitle>
+                <CardDescription>Build real AI solutions with guidance</CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <Button variant="ghost" className="w-full" disabled>
+                  Coming Soon
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Team Training</CardTitle>
+                <CardDescription>Custom programmes for organisations</CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <Button asChild variant="outline" className="w-full">
+                  <Link href="/contact">
+                    Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Programme Section */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <Card variant="glass-card" className="border-2 border-primary/30">
+            <CardContent className="py-12 px-6 lg:px-12">
+              <div className="text-center space-y-6">
+                <Badge variant="popular" className="text-sm px-4 py-2">Featured Programme</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold font-display">
+                  AI Foundations: From Curious to Capable
+                </h2>
+                <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+                  <span>4 Weeks</span>
+                  <span>•</span>
+                  <span>8 Live Sessions</span>
+                  <span>•</span>
+                  <span>Portfolio Outcomes</span>
+                </div>
+                <p className="text-lg text-gray-700">
+                  Next cohort starts <span className="font-semibold">[PLACEHOLDER: Next cohort start date]</span>
+                </p>
+                <p className="text-2xl font-bold text-primary">
+                  R1,500 - R2,500
+                </p>
+                <Button asChild size="lg">
+                  <Link href="/aifoundations">Secure Your Spot</Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Philosophy Preview Section */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-center text-gray-900 mb-12">
+            Our Approach
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {[
+              {
+                title: "Practical AI",
+                description: "Skills you can use tomorrow, not theory for someday"
+              },
+              {
+                title: "Build. Ship. Reflect.",
+                description: "Every week you create something real"
+              },
+              {
+                title: "Skills Before Tools",
+                description: "Master the thinking, tools will come and go"
+              }
+            ].map((item, index) => (
+              <Card key={index} className="text-center">
+                <CardContent className="pt-8">
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center">
+            <Button asChild variant="outline">
+              <Link href="/philosophy">Read Our Philosophy</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Proof Section */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <Card className="text-center">
+            <CardContent className="py-12 px-6">
+              <p className="text-2xl font-semibold text-gray-900 mb-4">
+                Join professionals building real AI skills
+              </p>
+              <p className="text-gray-600">
+                [PLACEHOLDER: Testimonials after first cohort]
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Lead Magnet CTA Section */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <Card variant="glass-card">
+            <CardContent className="py-12 px-6 lg:px-12">
+              <div className="text-center space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold font-display">
+                  Not Sure Where to Start?
+                </h2>
+                <p className="text-lg text-gray-700">
+                  Take our free 5-minute AI Readiness Quiz and get a personalised recommendation
+                </p>
+                <div className="max-w-md mx-auto space-y-4">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full"
+                  />
+                  <Button asChild size="lg" className="w-full">
+                    <Link href="/quiz">Start the Quiz</Link>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
